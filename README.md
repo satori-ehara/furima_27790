@@ -14,7 +14,7 @@
 ## commentsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|text|text||
+|text|text|null: false|
 |user_id|integer|null: false|
 |comment_item_id|integer|null: false|
 ### Association
@@ -40,3 +40,12 @@
 - belongs_to :user
 - has_many :comments_items
 - has_many :comments, through: :comments_items
+
+## comments_itemsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|comment_id|integer|null: false|
+|item_id|integer|null: false|
+### Association
+- belongs_to :comment
+- belongs_to :item
