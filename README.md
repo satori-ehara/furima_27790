@@ -16,11 +16,10 @@
 |------|----|-------|
 |text|text|null: false|
 |user_id|integer|null: false, foreign_key: true|
-|comment_item_id|integer|null: false, foreign_key: true|
+|item_id|integer|null: false, foreign_key: true|
 ### Association
 - belongs_to :user
-- has_many :comments_items
-- has_many :items, through: :comments_items
+- belongs_to :item
 
 ## itemsテーブル
 |Column|Type|Options|
@@ -30,7 +29,6 @@
 |image|string|null: false|
 |price|integer|null: false|
 |user_id|integer|null: false, foreign_key: true|
-|comments_items_id|integer|null: false, foreign_key: true|
 |condition|string|null: false|
 |type|string|null: false|
 |burden|boolean|null: false|
@@ -39,13 +37,4 @@
 ### Association
 - belongs_to :user
 - has_many :comments_items
-- has_many :comments, through: :comments_items
-
-## comments_itemsテーブル
-|Column|Type|Options|
-|------|----|-------|
-|comment_id|integer|null: false, foreign_key: true|
-|item_id|integer|null: false, foreign_key: true|
-### Association
-- belongs_to :comment
-- belongs_to :item
+- has_many :comments
