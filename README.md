@@ -4,7 +4,7 @@
 |nickname|string|null: false|
 |email|string|null: false|
 |password|string|null: false|
-|Birthday|string|null: false|
+|Birthday|integer|null: false|
 |name_kanji|string|null: false|
 |name_katakana|string|null: false|
 ### Association
