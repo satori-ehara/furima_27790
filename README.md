@@ -15,8 +15,8 @@
 |Column|Type|Options|
 |------|----|-------|
 |text|text|null: false|
-|user_id|integer|null: false|
-|comment_item_id|integer|null: false|
+|user_id|integer|null: false, foreign_key: true|
+|comment_item_id|integer|null: false, foreign_key: true|
 ### Association
 - belongs_to :user
 - has_many :comments_items
@@ -29,8 +29,8 @@
 |description|text|null: false|
 |image|string|null: false|
 |price|integer|null: false|
-|user_id|integer|null: false|
-|comments_items_id|integer|null: false|
+|user_id|integer|null: false, foreign_key: true|
+|comments_items_id|integer|null: false, foreign_key: true|
 |condition|string|null: false|
 |type|string|null: false|
 |burden|boolean|null: false|
@@ -44,8 +44,8 @@
 ## comments_itemsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|comment_id|integer|null: false|
-|item_id|integer|null: false|
+|comment_id|integer|null: false, foreign_key: true|
+|item_id|integer|null: false, foreign_key: true|
 ### Association
 - belongs_to :comment
 - belongs_to :item
