@@ -36,5 +36,4 @@
 |days|string|null: false|
 ### Association
 - belongs_to :user
-- has_many :comments_items
 - has_many :comments
