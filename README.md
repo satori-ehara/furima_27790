@@ -29,11 +29,11 @@
 |image|string|null: false|
 |price|integer|null: false|
 |user_id|integer|null: false, foreign_key: true|
-|condition|string|null: false|
-|type|string|null: false|
-|burden|boolean|null: false|
-|prefectures|string|null: false|
-|days|string|null: false|
+|condition_id|integer|null: false|
+|type_id|integer|null: false|
+|burden_id|integer|null: false|
+|prefectures_id|integer|null: false|
+|days_id|integer|null: false|
 ### Association
 - belongs_to :user
 - has_many :comments
