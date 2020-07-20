@@ -12,6 +12,8 @@
 ### Association
 - has_many :items
 - has_many :comments
+- has_many :buys
+
 
 ## commentsテーブル
 |Column|Type|Options|
@@ -39,6 +41,7 @@
 ### Association
 - belongs_to :user
 - has_many :comments
+- belongs_to :buy
 
 ## buyテーブル
 |Column|Type|Options|
