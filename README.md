@@ -65,7 +65,7 @@
 |city|string|null: false|
 |address|string|null: false|
 |building|string||
-|phone_number|integer|null: false|
+|phone_number|string|null: false|
 |buy_id|integer|null: false, foreign_key: true|
 ### Association
 - belongs_to :buy
