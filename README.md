@@ -31,11 +31,11 @@
 |image|string|null: false|
 |price|integer|null: false|
 |user_id|integer|null: false, foreign_key: true|
-|condition_id|integer|null: false|
-|type_id|integer|null: false|
-|burden_id|integer|null: false|
-|prefectures_id|integer|null: false|
-|days_id|integer|null: false|
+|condition_id|integer|null: false, foreign_key: true|
+|type_id|integer|null: false, foreign_key: true|
+|burden_id|integer|null: false, foreign_key: true|
+|prefectures_id|integer|null: false, foreign_key: true|
+|days_id|integer|null: false, foreign_key: true|
 ### Association
 - belongs_to :user
 - has_many :comments
@@ -58,7 +58,7 @@
 |Column|Type|Options|
 |------|----|-------|
 |post_code|integer|null: false|
-|prefectures_id|integer|null: false|
+|prefectures_id|integer|null: false, foreign_key: true|
 |city|string|null: false|
 |address|string|null: false|
 |building|string||
