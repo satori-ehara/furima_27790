@@ -1,24 +1,71 @@
-# README
+## usersテーブル
+|Column|Type|Options|
+|------|----|-------|
+|nickname|string|null: false|
+|email|string|null: false|
+|password|string|null: false|
+|Birthday|integer|null: false|
+|first_name_kanji|string|null: false|
+|first_name_katakana|string|null: false|
+|last_name_kanji|string|null: false|
+|last_name_katakana|string|null: false|
+### Association
+- has_many :items
+- has_many :comments
+- has_many :buys
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
+## commentsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|text|text|null: false|
+|user_id|integer|null: false, foreign_key: true|
+|item_id|integer|null: false, foreign_key: true|
+### Association
+- belongs_to :user
+- belongs_to :item
 
-* Ruby version
+## itemsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|name|string|null: false|
+|description|text|null: false|
+|image|string|null: false|
+|price|integer|null: false|
+|user_id|integer|null: false, foreign_key: true|
+|condition_id|integer|null: false, foreign_key: true|
+|type_id|integer|null: false, foreign_key: true|
+|burden_id|integer|null: false, foreign_key: true|
+|prefectures_id|integer|null: false, foreign_key: true|
+|days_id|integer|null: false, foreign_key: true|
+### Association
+- belongs_to :user
+- has_many :comments
+- belongs_to :buy
 
-* System dependencies
+## buysテーブル
+|Column|Type|Options|
+|------|----|-------|
+|card_number|integer|null: false|
+|card_timelimit_month|integer|null: false|
+|card_timelimit_year|integer|null: false|
+|card_cvv|integer|null: false|
+|user_id|integer|null: false, foreign_key: true|
+|item_id|integer|null: false, foreign_key: true|
+### Association
+- belongs_to :user
+- belongs_to :item
+- belongs_to :address
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## addressesテーブル
+|Column|Type|Options|
+|------|----|-------|
+|post_code|integer|null: false|
+|prefectures_id|integer|null: false, foreign_key: true|
+|city|string|null: false|
+|address|string|null: false|
+|building|string||
+|phone_number|string|null: false|
+|buy_id|integer|null: false, foreign_key: true|
+### Association
+- belongs_to :buy
