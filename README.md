@@ -43,7 +43,7 @@
 - has_many :comments
 - belongs_to :buy
 
-## buyテーブル
+## buysテーブル
 |Column|Type|Options|
 |------|----|-------|
 |card_number|integer|null: false|
@@ -57,7 +57,7 @@
 - belongs_to :item
 - belongs_to :address
 
-## addressテーブル
+## addressesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |post_code|integer|null: false|
