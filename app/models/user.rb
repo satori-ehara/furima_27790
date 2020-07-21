@@ -4,6 +4,5 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-    validates :first_name_katakana, presence: true
-    # validates :first_name_katakana, presence: true,format: { with: /\A[a-zA-Z]+\z/ }
+    validates :first_name_katakana, presence: true,format: { with: /^([ァ-ン]|ー)+$/ }
 end

@@ -4,7 +4,9 @@
 |nickname|string|null: false|
 |email|string|null: false|
 |password|string|null: false|
-|Birthday|integer|null: false|
+|Birthday_year|integer|null: false|
+|Birthday_month|integer|null: false|
+|Birthday_day|integer|null: false|
 |first_name_kanji|string|null: false|
 |first_name_katakana|string|null: false|
 |last_name_kanji|string|null: false|

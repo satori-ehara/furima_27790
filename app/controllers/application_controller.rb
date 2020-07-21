@@ -16,7 +16,6 @@ class ApplicationController < ActionController::Base
       params[:user][:Birthday_month] = params[:user]["Birthday(2i)"].to_i
       params[:user][:Birthday_day] = params[:user]["Birthday(3i)"].to_i
     end
-    binding.pry
     devise_parameter_sanitizer.permit(:sign_up, keys: [:nickname,:Birthday_year,:Birthday_month,:Birthday_day,:first_name_kanji,:last_name_kanji,:first_name_katakana,:last_name_katakana])
   end
 end
