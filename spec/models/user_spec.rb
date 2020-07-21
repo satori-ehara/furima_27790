@@ -50,5 +50,29 @@ describe User do
       expect(user.errors[:password_confirmation]).to include("doesn't match Password")
     end
 
+    it "名前を入力していないと登録できない事" do
+      user = build(:user, first_name_kanji: "")
+      user.valid?
+      expect(user.errors[:first_name_kanji]).to include("can't be blank")
+    end
+
+    it "苗字を入力していないと登録できない事" do
+      user = build(:user, last_name_kanji: "")
+      user.valid?
+      expect(user.errors[:last_name_kanji]).to include("can't be blank")
+    end
+
+    it "名前（読み）を入力していないと登録できない事" do
+      user = build(:user, first_name_katakana: "")
+      user.valid?
+      expect(user.errors[:first_name_katakana]).to include("can't be blank")
+    end
+
+    it "苗字(読み)を入力していないと登録できない事" do
+      user = build(:user, last_name_katakana: "")
+      user.valid?
+      expect(user.errors[:last_name_katakana]).to include("can't be blank")
+    end
+
   end
 end
