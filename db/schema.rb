@@ -36,7 +36,9 @@ ActiveRecord::Schema.define(version: 2020_07_20_044949) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "nickname"
-    t.string "Birthday"
+    t.integer "Birthday_year"
+    t.integer "Birthday_month"
+    t.integer "Birthday_day"
     t.string "first_name_kanji"
     t.string "last_name_kanji"
     t.string "first_name_katakana"

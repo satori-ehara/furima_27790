@@ -3,4 +3,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+
+    validates :first_name_katakana, presence: true
+    # validates :first_name_katakana, presence: true,format: { with: /\A[a-zA-Z]+\z/ }
 end
