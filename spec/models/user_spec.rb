@@ -74,5 +74,29 @@ describe User do
       expect(user.errors[:last_name_katakana]).to include("can't be blank")
     end
 
+    it "名前は平仮名、片仮名、漢字いずれかで入力する必要がある事" do
+      user = build(:user, first_name_kanji: "aaa")
+      user.valid?
+      expect(user.errors[:first_name_kanji]).to include("is invalid")
+    end
+
+    it "苗字は平仮名、片仮名、漢字いずれかで入力する必要がある事" do
+      user = build(:user, last_name_kanji: "zzz")
+      user.valid?
+      expect(user.errors[:last_name_kanji]).to include("is invalid")
+    end
+
+    it "名前（読み）はカタカナで入力する必要がある事" do
+      user = build(:user, first_name_katakana: "ああ")
+      user.valid?
+      expect(user.errors[:first_name_katakana]).to include("is invalid")
+    end
+
+    it "苗字(読み)はカタカナで入力する必要がある事" do
+      user = build(:user, last_name_katakana: "いい")
+      user.valid?
+      expect(user.errors[:last_name_katakana]).to include("is invalid")
+    end
+
   end
 end
