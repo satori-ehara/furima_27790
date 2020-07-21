@@ -98,5 +98,23 @@ describe User do
       expect(user.errors[:last_name_katakana]).to include("is invalid")
     end
 
+    it "生年月日の年が入力されている事" do
+      user = build(:user, Birthday_year: "0")
+      user.valid?
+      expect(user.errors[:Birthday_year]).to include("is invalid")
+    end
+
+    it "生年月日の月が入力されている事" do
+      user = build(:user, Birthday_month: "0")
+      user.valid?
+      expect(user.errors[:Birthday_month]).to include("is invalid")
+    end
+
+    it "生年月日の日が入力されている事" do
+      user = build(:user, Birthday_day: "0")
+      user.valid?
+      expect(user.errors[:Birthday_day]).to include("is invalid")
+    end
+
   end
 end
