@@ -29,7 +29,25 @@ describe User do
       user = build(:user)
       user_2 = build(:user)
       user_2.valid?
-      expect(user.errors[:email]).to include()
+      expect(user_2.errors[:email]).to include()
+    end
+
+    it "パスワードは6文字以上である事" do
+      user = build(:user, password: "12qw", password_confirmation: "12qw")
+      user.valid?
+      expect(user.errors[:password]).to include("is too short (minimum is 6 characters)")
+    end
+
+    it "パスワードは半角英数字混合である事" do
+      user = build(:user, password: "123456", password_confirmation: "123456")
+      user.valid?
+      expect(user.errors[:password]).to include("need 1~9&a~z")
+    end
+
+    it "パスワードは確認用m含め2回記述する事" do
+      user = build(:user, password_confirmation: "")
+      user.valid?
+      expect(user.errors[:password_confirmation]).to include("doesn't match Password")
     end
 
   end
