@@ -7,4 +7,6 @@ class Item < ApplicationRecord
   belongs_to_active_hash :day
   has_one_attached :image
 
+  validates :image, presence: true
+
 end
