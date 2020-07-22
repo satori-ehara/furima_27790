@@ -16,5 +16,11 @@ describe Item do
       @item2.valid?
       expect(@item2.errors[:image]).to include("can't be blank")
     end
+
+    it '画像を登録しなかった場合に保存できない事を確認' do
+      
+      @item.valid?
+      expect(@item2.errors[:image]).to include("can't be blank")
+    end
   end
 end

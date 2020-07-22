@@ -1,12 +1,13 @@
 FactoryBot.define do
   factory :item do
     name                  { 'abe' }
-    price                 { 'kkk@gmail.com' }
-    user_id               { '1234qwer' }
-    condition_id          { '1234qwer' }
-    type_id               { '漢字' }
-    burden_id             { '漢字' }
-    prefectures_id        { 'カタカナ' }
-    days_id               { 'カタカナ' }
+    description           { '説明文がここに入ります。' }
+    price                 { '5000' }
+    user_id               { '12' }
+    condition_id          { '1' }
+    type_id               { '1' }
+    burden_id             { '1' }
+    prefectures_id        { '1' }
+    days_id               { '1' }
   end
 end
