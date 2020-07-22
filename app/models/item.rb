@@ -8,5 +8,5 @@ class Item < ApplicationRecord
   has_one_attached :image
 
   validates :image,:name,:description,:condition_id,:type_id,:burden_id,:prefectures_id,:days_id, presence: true
-  validates :price, presence: true,numericality: { only_integer: true, greater_than: 299, :less_than 10000000}
+  validates :price, presence: true,numericality: { only_integer: true, greater_than: 299, less_than: 10000000}
 end

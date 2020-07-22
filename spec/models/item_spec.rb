@@ -17,10 +17,28 @@ describe Item do
       expect(@item2.errors[:image]).to include("can't be blank")
     end
 
-    it '画像を登録しなかった場合に保存できない事を確認' do
-      
+    it '300円以下だと登録できない事を確認' do
+      @item.price = 200
       @item.valid?
-      expect(@item2.errors[:image]).to include("can't be blank")
+      expect(@item.errors[:price]).to include("must be greater than 299")
+    end
+
+    it '1000万円以上だと登録できない事を確認' do
+      @item.price = 10000000
+      @item.valid?
+      expect(@item.errors[:price]).to include("must be less than 10000000")
+    end
+
+    it '数値じゃないと登録できない事を確認' do
+      @item.price = "５６７８９"
+      @item.valid?
+      expect(@item.errors[:price]).to include("is not a number")
+    end
+
+    it '小数だと登録できない事を確認' do
+      @item.price = 5000.5
+      @item.valid?
+      expect(@item.errors[:price]).to include("must be an integer")
     end
   end
 end
