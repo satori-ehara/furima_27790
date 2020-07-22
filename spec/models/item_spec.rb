@@ -40,5 +40,24 @@ describe Item do
       @item.valid?
       expect(@item.errors[:price]).to include("must be an integer")
     end
+
+    it '商品名が無いと登録できない事を確認' do
+      @item.name = ""
+      @item.valid?
+      expect(@item.errors[:name]).to include("can't be blank")
+    end
+
+    it '説明文が無いと登録できない事を確認' do
+      @item.description = ""
+      @item.valid?
+      expect(@item.errors[:description]).to include("can't be blank")
+    end
+
+    it '値段が無いと登録できない事を確認' do
+      @item.price = ""
+      @item.valid?
+      expect(@item.errors[:price]).to include("can't be blank")
+    end
+
   end
 end
