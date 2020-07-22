@@ -35,12 +35,6 @@ describe Item do
       expect(@item.errors[:price]).to include("is not a number")
     end
 
-    it '小数だと登録できない事を確認' do
-      @item.price = 5000.5
-      @item.valid?
-      expect(@item.errors[:price]).to include("must be an integer")
-    end
-
     it '商品名が無いと登録できない事を確認' do
       @item.name = ""
       @item.valid?
