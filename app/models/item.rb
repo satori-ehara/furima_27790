@@ -7,6 +7,6 @@ class Item < ApplicationRecord
   belongs_to_active_hash :day
   has_one_attached :image
 
-  validates :image,:name,:description,:condition_id,:type_id,:burden_id,:prefectures_id,:days_id, presence: true
-  validates :price, presence: true,numericality: { greater_than: 299, less_than: 10000000}
+  validates :image, :name, :description, :condition_id, :type_id, :burden_id, :prefectures_id, :days_id, presence: true
+  validates :price, presence: true, numericality: { greater_than: 299, less_than: 10_000_000 }
 end

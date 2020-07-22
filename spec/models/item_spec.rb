@@ -11,7 +11,6 @@ describe Item do
       expect(@item).to be_valid
     end
 
-
     it '画像を登録しなかった場合に保存できない事を確認' do
       @item2.valid?
       expect(@item2.errors[:image]).to include("can't be blank")
@@ -20,68 +19,67 @@ describe Item do
     it '300円以下だと登録できない事を確認' do
       @item.price = 200
       @item.valid?
-      expect(@item.errors[:price]).to include("must be greater than 299")
+      expect(@item.errors[:price]).to include('must be greater than 299')
     end
 
     it '1000万円以上だと登録できない事を確認' do
-      @item.price = 10000000
+      @item.price = 10_000_000
       @item.valid?
-      expect(@item.errors[:price]).to include("must be less than 10000000")
+      expect(@item.errors[:price]).to include('must be less than 10000000')
     end
 
     it '数値じゃないと登録できない事を確認' do
-      @item.price = "５６７８９"
+      @item.price = '５６７８９'
       @item.valid?
-      expect(@item.errors[:price]).to include("is not a number")
+      expect(@item.errors[:price]).to include('is not a number')
     end
 
     it '商品名が無いと登録できない事を確認' do
-      @item.name = ""
+      @item.name = ''
       @item.valid?
       expect(@item.errors[:name]).to include("can't be blank")
     end
 
     it '説明文が無いと登録できない事を確認' do
-      @item.description = ""
+      @item.description = ''
       @item.valid?
       expect(@item.errors[:description]).to include("can't be blank")
     end
 
     it '値段が無いと登録できない事を確認' do
-      @item.price = ""
+      @item.price = ''
       @item.valid?
       expect(@item.errors[:price]).to include("can't be blank")
     end
 
     it 'カテゴリーが無いと登録できない事を確認' do
-      @item.type_id = ""
+      @item.type_id = ''
       @item.valid?
       expect(@item.errors[:type_id]).to include("can't be blank")
     end
 
     it '商品の状態が無いと登録できない事を確認' do
-      @item.condition_id = ""
+      @item.condition_id = ''
       @item.valid?
       expect(@item.errors[:condition_id]).to include("can't be blank")
     end
 
     it '送料の負担者が無いと登録できない事を確認' do
-      @item.burden_id = ""
+      @item.burden_id = ''
       @item.valid?
       expect(@item.errors[:burden_id]).to include("can't be blank")
     end
 
     it '発送元の地域が無いと登録できない事を確認' do
-      @item.prefectures_id = ""
+      @item.prefectures_id = ''
       @item.valid?
       expect(@item.errors[:prefectures_id]).to include("can't be blank")
     end
 
     it '発送までの日数が無いと登録できない事を確認' do
-      @item.days_id = ""
+      @item.days_id = ''
       @item.valid?
       expect(@item.errors[:days_id]).to include("can't be blank")
     end
-
   end
 end
