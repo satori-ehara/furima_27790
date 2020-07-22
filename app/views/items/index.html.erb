@@ -130,8 +130,6 @@
         <%= render partial: "items", locals: { item: item } %>
       <% end %>
 
-      <%# 商品がない場合のダミー %>
-      <%# 商品がある場合は表示されないようにしましょう %>
       <% if @items.length == 0 %>
         <li class='list'>
           <%= link_to '#' do %>
