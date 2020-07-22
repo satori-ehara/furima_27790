@@ -59,5 +59,35 @@ describe Item do
       expect(@item.errors[:price]).to include("can't be blank")
     end
 
+    it 'カテゴリーが無いと登録できない事を確認' do
+      @item.type_id = ""
+      @item.valid?
+      expect(@item.errors[:type_id]).to include("can't be blank")
+    end
+
+    it '商品の状態が無いと登録できない事を確認' do
+      @item.condition_id = ""
+      @item.valid?
+      expect(@item.errors[:condition_id]).to include("can't be blank")
+    end
+
+    it '送料の負担者が無いと登録できない事を確認' do
+      @item.burden_id = ""
+      @item.valid?
+      expect(@item.errors[:burden_id]).to include("can't be blank")
+    end
+
+    it '発送元の地域が無いと登録できない事を確認' do
+      @item.prefectures_id = ""
+      @item.valid?
+      expect(@item.errors[:prefectures_id]).to include("can't be blank")
+    end
+
+    it '発送までの日数が無いと登録できない事を確認' do
+      @item.days_id = ""
+      @item.valid?
+      expect(@item.errors[:days_id]).to include("can't be blank")
+    end
+
   end
 end
