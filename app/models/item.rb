@@ -14,8 +14,8 @@ class Item < ApplicationRecord
     validates :condition_id
     validates :type_id
     validates :burden_id
-    validates :prefectures_id
-    validates :days_id
+    validates :prefecture_id
+    validates :day_id
     validates :price, numericality: { greater_than: 299, less_than: 10_000_000 }
   end
 end
