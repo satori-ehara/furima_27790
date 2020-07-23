@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
   before_action :check_login, only: [:new, :create]
+  before_action :get_item, only: :show
 
   def index
     @items = Item.all
@@ -19,7 +20,6 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @item = Item.find(params[:id])
   end
 
   private
@@ -30,5 +30,9 @@ class ItemsController < ApplicationController
 
   def check_login
     redirect_to action: :index unless user_signed_in?
+  end
+
+  def get_item
+    @item = Item.find(params[:id])
   end
 end
