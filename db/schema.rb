@@ -42,8 +42,8 @@ ActiveRecord::Schema.define(version: 2020_07_22_051550) do
     t.integer "condition_id"
     t.integer "type_id"
     t.integer "burden_id"
-    t.integer "prefectures_id"
-    t.integer "days_id"
+    t.integer "prefecture_id"
+    t.integer "day_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

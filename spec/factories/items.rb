@@ -7,7 +7,7 @@ FactoryBot.define do
     condition_id          { '1' }
     type_id               { '1' }
     burden_id             { '1' }
-    prefectures_id        { '1' }
-    days_id               { '1' }
+    prefecture_id        { '1' }
+    day_id               { '1' }
   end
 end

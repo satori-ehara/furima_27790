@@ -71,15 +71,15 @@ describe Item do
     end
 
     it '発送元の地域が無いと登録できない事を確認' do
-      @item.prefectures_id = ''
+      @item.prefecture_id = ''
       @item.valid?
-      expect(@item.errors[:prefectures_id]).to include("can't be blank")
+      expect(@item.errors[:prefecture_id]).to include("can't be blank")
     end
 
     it '発送までの日数が無いと登録できない事を確認' do
-      @item.days_id = ''
+      @item.day_id = ''
       @item.valid?
-      expect(@item.errors[:days_id]).to include("can't be blank")
+      expect(@item.errors[:day_id]).to include("can't be blank")
     end
   end
 end

@@ -9,8 +9,8 @@ class CreateItems < ActiveRecord::Migration[6.0]
       t.integer :condition_id
       t.integer :type_id
       t.integer :burden_id
-      t.integer :prefectures_id
-      t.integer :days_id
+      t.integer :prefecture_id
+      t.integer :day_id
       t.timestamps
     end
   end
