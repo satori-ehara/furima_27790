@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
   before_action :check_login, only: [:new, :create]
-  before_action :get_item, only: :show
+  before_action :get_item, only: [:show,:edit]
 
   def index
     @items = Item.all
@@ -20,6 +20,12 @@ class ItemsController < ApplicationController
   end
 
   def show
+  end
+
+  def edit
+  end
+
+  def updata
   end
 
   private
