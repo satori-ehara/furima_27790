@@ -25,7 +25,7 @@ class ItemsController < ApplicationController
   def edit
   end
 
-  def updata
+  def update
   end
 
   private
