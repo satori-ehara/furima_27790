@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
   before_action :check_login, only: [:new, :create, :edit, :update]
-  before_action :get_item, only: [:show,:edit,:update]
+  before_action :get_item, only: [:show, :edit, :update]
 
   def index
     @items = Item.all
@@ -34,7 +34,6 @@ class ItemsController < ApplicationController
     end
   end
 
-
   private
 
   def item_params
@@ -50,8 +49,6 @@ class ItemsController < ApplicationController
   end
 
   def check_user
-    if current_user.id != @item.user_id
-      redirect_to root_path
-    end
+    redirect_to root_path if current_user.id != @item.user_id
   end
 end
