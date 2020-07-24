@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :check_login, only: [:new, :create]
+  before_action :check_login, only: [:new, :create, :edit, :update]
   before_action :get_item, only: [:show,:edit,:update]
 
   def index
