@@ -49,7 +49,7 @@ class ItemsController < ApplicationController
   end
 
   def check_user
-    if current_user.id != params[:id]
+    if current_user.id != @item.user_id
       redirect_to root_path
     end
   end
