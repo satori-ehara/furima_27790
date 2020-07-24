@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
   before_action :check_login, only: [:new, :create]
-  before_action :get_item, only: [:show,:edit]
+  before_action :get_item, only: [:show,:edit,:update]
 
   def index
     @items = Item.all
@@ -26,6 +26,11 @@ class ItemsController < ApplicationController
   end
 
   def update
+    if @item.update(item_params)
+      redirect_to item_path(params[:id])
+    else
+      render :edit
+    end
   end
 
   private
