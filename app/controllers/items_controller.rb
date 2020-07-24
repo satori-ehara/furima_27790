@@ -37,6 +37,7 @@ class ItemsController < ApplicationController
   def destroy
     check_user
     @item.destroy
+    redirect_to root_path
   end
 
   private
