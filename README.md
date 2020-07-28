@@ -44,6 +44,7 @@
 - belongs_to :user
 - has_many :comments
 - belongs_to :buy
+- belongs_to :addresses
 
 ## buysテーブル
 |Column|Type|Options|
@@ -53,7 +54,6 @@
 ### Association
 - belongs_to :user
 - belongs_to :item
-- belongs_to :address
 
 ## addressesテーブル
 |Column|Type|Options|
@@ -66,4 +66,4 @@
 |phone_number|string|null: false|
 |buy_id|integer|null: false, foreign_key: true|
 ### Association
-- belongs_to :buy
+- belongs_to :item
