@@ -48,10 +48,6 @@
 ## buysテーブル
 |Column|Type|Options|
 |------|----|-------|
-|card_number|integer|null: false|
-|card_timelimit_month|integer|null: false|
-|card_timelimit_year|integer|null: false|
-|card_cvv|integer|null: false|
 |user_id|integer|null: false, foreign_key: true|
 |item_id|integer|null: false, foreign_key: true|
 ### Association
