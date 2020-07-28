@@ -48,14 +48,26 @@
 ## buysテーブル
 |Column|Type|Options|
 |------|----|-------|
+|card_number|integer|null: false|
+|card_timelimit_month|integer|null: false|
+|card_timelimit_year|integer|null: false|
+|card_cvv|integer|null: false|
 |user_id|integer|null: false, foreign_key: true|
 |item_id|integer|null: false, foreign_key: true|
+### Association
+- belongs_to :user
+- belongs_to :item
+- belongs_to :address
+
+## addressesテーブル
+|Column|Type|Options|
+|------|----|-------|
 |post_code|integer|null: false|
 |prefectures_id|integer|null: false, foreign_key: true|
 |city|string|null: false|
 |address|string|null: false|
 |building|string||
 |phone_number|string|null: false|
+|buy_id|integer|null: false, foreign_key: true|
 ### Association
-- belongs_to :user
-- belongs_to :item
+- belongs_to :buy
