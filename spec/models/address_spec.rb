@@ -1,5 +1,7 @@
 require 'rails_helper'
-
-RSpec.describe Address, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+describe Address do
+  describe '#create' do
+    it "郵便番号が無いと登録できない事をテスト" do
+    end
+  end
 end
