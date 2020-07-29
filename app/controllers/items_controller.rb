@@ -20,6 +20,7 @@ class ItemsController < ApplicationController
   end
 
   def show
+    params[:item_id] = params[:id]
   end
 
   def edit
