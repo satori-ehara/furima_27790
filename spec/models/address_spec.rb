@@ -9,53 +9,51 @@ describe Address do
       expect(@address).to be_valid
     end
 
-    it "郵便番号が無いと登録できない事をテスト" do
-      @address.post_code = ""
+    it '郵便番号が無いと登録できない事をテスト' do
+      @address.post_code = ''
       @address.valid?
       expect(@address.errors[:post_code]).to include("can't be blank")
     end
 
-    it "都道府県が無いと登録できない事をテスト" do
-      @address.prefecture_id = ""
+    it '都道府県が無いと登録できない事をテスト' do
+      @address.prefecture_id = ''
       @address.valid?
       expect(@address.errors[:prefecture_id]).to include("can't be blank")
     end
 
-    it "市区町村が無いと登録できない事をテスト" do
-      @address.city = ""
+    it '市区町村が無いと登録できない事をテスト' do
+      @address.city = ''
       @address.valid?
       expect(@address.errors[:city]).to include("can't be blank")
     end
 
-    it "番地が無いと登録できない事をテスト" do
-      @address.address = ""
+    it '番地が無いと登録できない事をテスト' do
+      @address.address = ''
       @address.valid?
       expect(@address.errors[:address]).to include("can't be blank")
     end
 
-    it "電話番号が無いと登録できない事をテスト" do
-      @address.phone_number = ""
+    it '電話番号が無いと登録できない事をテスト' do
+      @address.phone_number = ''
       @address.valid?
       expect(@address.errors[:phone_number]).to include("can't be blank")
     end
 
-    it "電話番号が12桁だと登録できない事をテスト" do
-      @address.phone_number = "111111111111"
+    it '電話番号が12桁だと登録できない事をテスト' do
+      @address.phone_number = '111111111111'
       @address.valid?
-      expect(@address.errors[:phone_number]).to include("is invalid")
+      expect(@address.errors[:phone_number]).to include('is invalid')
     end
 
-    it "電話番号が11桁で登録できる事をテスト" do
-      @address.phone_number = "01111111111"
+    it '電話番号が11桁で登録できる事をテスト' do
+      @address.phone_number = '01111111111'
       expect(@address).to be_valid
     end
 
-    it "郵便番号にハイフンが無いと登録できない事をテスト" do
-      @address.post_code = "1234567"
+    it '郵便番号にハイフンが無いと登録できない事をテスト' do
+      @address.post_code = '1234567'
       @address.valid?
-      expect(@address.errors[:post_code]).to include("is invalid")
+      expect(@address.errors[:post_code]).to include('is invalid')
     end
-
-
   end
 end
