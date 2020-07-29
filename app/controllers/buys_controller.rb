@@ -13,11 +13,11 @@ class BuysController < ApplicationController
         pay_item
         @buys.save
       else
-        render :index
+        redirect_to item_buys_path(params[:item_id])
       end
       return redirect_to root_path
     else
-      render :index
+      redirect_to item_buys_path(params[:item_id])
     end
   end
 
