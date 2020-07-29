@@ -34,5 +34,7 @@ describe Address do
       @address.valid?
       expect(@address.errors[:phone_number]).to include("can't be blank")
     end
+
+    
   end
 end
