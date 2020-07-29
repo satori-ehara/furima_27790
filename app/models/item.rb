@@ -1,5 +1,8 @@
 class Item < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
+  has_one :address
+  has_one :buy
+  belongs_to :user
   belongs_to_active_hash :type
   belongs_to_active_hash :burden
   belongs_to_active_hash :condition

@@ -2,6 +2,7 @@ class BuysController < ApplicationController
   before_action :get_item, only: [:index, :create]
 
   def index
+    cheack_item
   end
 
   def create
@@ -41,5 +42,14 @@ class BuysController < ApplicationController
 
   def get_item
     @item = Item.find(params[:item_id])
+  end
+
+  def cheack_item
+    if current_user[:id] == @item[:user_id]
+      return redirect_to root_path
+    end 
+    if@item.buy != nil
+      return redirect_to root_path
+    end
   end
 end
