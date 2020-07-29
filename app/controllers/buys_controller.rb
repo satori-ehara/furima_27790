@@ -15,7 +15,7 @@ class BuysController < ApplicationController
       else
         render :index
       end
-      redirect_to root_path
+      return redirect_to root_path
     else
       render :index
     end
