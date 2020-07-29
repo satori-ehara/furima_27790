@@ -6,12 +6,12 @@ class BuysController < ApplicationController
   end
 
   def create
+    @address = Address.new(address_params)
     @buys = Buy.new(item_id: buy_params[:item_id],user_id: current_user[:id])
       if @buys.valid?
-        pay_item
-        @buys.save
-        @address = Address.new(address_params)
         if @address.save
+          pay_item
+          @buys.save
         else
           render :index
         end
@@ -48,7 +48,7 @@ class BuysController < ApplicationController
     if current_user[:id] == @item[:user_id]
       return redirect_to root_path
     end 
-    if@item.buy != nil
+    if @item.buy != nil
       return redirect_to root_path
     end
   end
