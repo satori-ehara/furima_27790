@@ -6,7 +6,6 @@ class Address < ApplicationRecord
     validates :prefecture_id
     validates :city
     validates :address
-    validates :building
     validates :phone_number, format: { with: /\A\d{11}\z/ }
     validates :item_id
   end

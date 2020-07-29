@@ -12,10 +12,10 @@ class BuysController < ApplicationController
       if @address.save
         pay_item
         @buys.save
+        return redirect_to root_path
       else
         redirect_to item_buys_path(params[:item_id])
       end
-      return redirect_to root_path
     else
       redirect_to item_buys_path(params[:item_id])
     end
