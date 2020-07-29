@@ -2,7 +2,7 @@ class Address < ApplicationRecord
   belongs_to :item,optional: true
 
   with_options presence: true do
-    validates :post_code
+    validates :post_code,format: { with: /[-]/ }
     validates :prefecture_id
     validates :city
     validates :address

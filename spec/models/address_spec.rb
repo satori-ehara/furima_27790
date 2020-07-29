@@ -50,6 +50,12 @@ describe Address do
       expect(@address).to be_valid
     end
 
+    it "郵便番号にハイフンが無いと登録できない事をテスト" do
+      @address.post_code = "1234567"
+      @address.valid?
+      expect(@address.errors[:post_code]).to include("is invalid")
+    end
+
 
   end
 end
