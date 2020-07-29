@@ -1,5 +1,5 @@
 class Address < ApplicationRecord
-  belongs_to :item
+  belongs_to :item,optional: true
 
   with_options presence: true do
     validates :post_code
@@ -7,7 +7,7 @@ class Address < ApplicationRecord
     validates :city
     validates :address
     validates :building
-    validates :phone_number
+    validates :phone_number,format: { with: /\A\d{11}\z/ }
     validates :item_id
   end
 end

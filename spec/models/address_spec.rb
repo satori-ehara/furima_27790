@@ -5,6 +5,10 @@ describe Address do
       @address = build(:address)
     end
 
+    it '全て登録すればしっかりと保存できる事を確認' do
+      expect(@address).to be_valid
+    end
+
     it "郵便番号が無いと登録できない事をテスト" do
       @address.post_code = ""
       @address.valid?
@@ -35,6 +39,17 @@ describe Address do
       expect(@address.errors[:phone_number]).to include("can't be blank")
     end
 
-    
+    it "電話番号が12桁だと登録できない事をテスト" do
+      @address.phone_number = "111111111111"
+      @address.valid?
+      expect(@address.errors[:phone_number]).to include("is invalid")
+    end
+
+    it "電話番号が11桁で登録できる事をテスト" do
+      @address.phone_number = "01111111111"
+      expect(@address).to be_valid
+    end
+
+
   end
 end
