@@ -7,9 +7,11 @@
       <%= @item.name %>
     </h2>
     <div class='item-img-content'>
-      <%= image_tag @item.image ,class:"item-box-img" %>
-      <%# 商品が売れている場合は、sould outの表示をしましょう。 %>
-      <%= render partial: "sold_out", locals: { item: @item } %>
+      <% @item.images.each do |image| %>
+        <%= image_tag image ,class:"item-box-img" %>
+        <%# 商品が売れている場合は、sould outの表示をしましょう。 %>
+        <%= render partial: "sold_out", locals: { item: @item } %>
+      <% end %>
 
     </div>
     <div class="item-price-box">

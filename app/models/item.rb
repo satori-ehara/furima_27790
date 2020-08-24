@@ -8,10 +8,10 @@ class Item < ApplicationRecord
   belongs_to_active_hash :condition
   belongs_to_active_hash :prefecture
   belongs_to_active_hash :day
-  has_one_attached :image
+  has_many_attached :images
 
   with_options presence: true do
-    validates :image
+    validates :images
     validates :name
     validates :description
     validates :condition_id
