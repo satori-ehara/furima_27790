@@ -13,3 +13,13 @@ ja:
      tweet:
        text: テキスト
        image: 画像
+     item:
+       name: 商品名
+       description: 説明文
+       price: 値段
+       images: 商品画像
+       condition_id: 商品の状態
+       type_id: カテゴリー
+       burden_id: 配送料の負担
+       prefecture_id: 発送元の地域
+       day_id: 配送までの日数
