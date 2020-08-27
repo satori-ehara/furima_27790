@@ -9,15 +9,17 @@ class BuysController < ApplicationController
     @address = Address.new(address_params)
     @buys = Buy.new(item_id: buy_params[:item_id], user_id: current_user[:id])
     if @buys.valid?
-      if @address.save
+      if @address.valid?
         pay_item
+        @address.save
         @buys.save
         return redirect_to root_path
       else
-        redirect_to item_buys_path(params[:item_id])
+        binding.pry
+        return redirect_to item_buys_path(params[:item_id])
       end
     else
-      redirect_to item_buys_path(params[:item_id])
+      return redirect_to item_buys_path(params[:item_id])
     end
   end
 

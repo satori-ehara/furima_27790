@@ -13,6 +13,10 @@ const pay = () => {
       exp_month: formData.get("exp_month"),
       exp_year: `20${formData.get("exp_year")}`,
     };
+    if(card.number == "" || card.cvc == "" || card.exp_month == "" || card.exp_year == "20"){
+      console.log("カード情報不備あり");
+      document.getElementById("charge-form").submit();
+    }
 
     Payjp.createToken(card, (status, response) => {
       if (status === 200) {
@@ -29,8 +33,10 @@ const pay = () => {
         document.getElementById("charge-form").submit();
         document.getElementById("charge-form").reset();
       } else {
+        document.getElementById("charge-form").submit();
       }
     });
+
   });
 };
 
